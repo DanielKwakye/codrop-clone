@@ -6,9 +6,43 @@
     <title>Page 1</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.1/flowbite.min.css" rel="stylesheet" />
+    
   </head>
   <body class="bg-[#EAF5FC]">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.1/flowbite.min.js"></script>
+    <style>
+      /* Hidden content */
+      .hidden-content {
+          transition: transform 0.5s ease;
+          transform: translateY(100%);
+      }
+
+      /* Displayed content */
+      .shown-content {
+          transform: translateY(0);
+      }
+
+    </style>
+
+    <style>
+      
+        @keyframes moveRightAndDisappear {
+            0% {
+                transform: translateX(0);
+            }
+            50% {
+                transform: translateX(2rem); /* Adjust the distance as needed */
+            }
+            100% {
+                transform: translateX(0);
+                opacity: 0;
+            }
+        }
+
+        #animatedSVG:hover {
+            animation: moveRightAndDisappear 4s ease infinite;
+        }
+    </style>
     <div class="px-4 lg:px-10 ">
       <div>
         <!-- lg:fixed focus:scroll-auto lg:bg-white lg:border-b-1 shadow-md border-gray-400 py-6 px-4 w-[94%] -->
@@ -35,7 +69,7 @@
           <section class="flex justify-between gap-8">
             <div class=" lg:flex hidden lg:block   ">
               <div>
-                <a href="#" id="dropdownHoverButton1" data-dropdown-toggle="dropdownHover1" data-dropdown-trigger="hover" class="group text-black font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center hover:text-blue-300" > Sites<svg
+                <a href="#" id="dropdownHoverButton1" id="hoverLink" data-dropdown-toggle="dropdownHover1" data-dropdown-trigger="hover" class="group text-black font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center hover:text-blue-300" > Sites<svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
                   viewBox="0 0 24 24"
@@ -49,7 +83,7 @@
                 d="m19.5 8.25-7.5 7.5-7.5-7.5"
                 />
               </svg></a>
-                <div id="dropdownHover1" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44  ">
+                <div id="dropdownHover1" id="popupContent" class="z-10 hidden hidden-content bg-white divide-y divide-gray-100 rounded-lg shadow w-44  ">
                   <ul class="py-2 text-sm text-black" aria-labelledby="dropdownHoverButton1">
                     <li>
                       <a href="#" class="block px-4 py-2  hover:text-blue-300">Saas</a>
@@ -94,7 +128,7 @@
         
         <div class="lg:flex hidden   lg:block">
           <div class="">
-            <a href="#"  id="dropdownHoverButton2" data-dropdown-toggle="dropdownHover2" data-dropdown-trigger="hover" class="group text-black font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center hover:text-blue-300 " > Pages   <svg
+            <a href="#"  id="dropdownHoverButton2" id="hoverLink"  data-dropdown-toggle="dropdownHover2" data-dropdown-trigger="hover" class="group text-black font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center hover:text-blue-300 " > Pages   <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
               viewBox="0 0 24 24"
@@ -108,7 +142,7 @@
               d="m19.5 8.25-7.5 7.5-7.5-7.5"
               />
             </svg></a>
-            <div id="dropdownHover2" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44">
+            <div id="dropdownHover2" id="popupContent" class="z-10 hidden hidden-content bg-white divide-y divide-gray-100 rounded-lg shadow w-44">
               <ul class="py-2 text-sm text-black " aria-labelledby="dropdownHoverButton2">
                 <li>
             
@@ -143,7 +177,7 @@
       </div>
       <div class="lg:flex hidden hover:text-blue-300  lg:block">
         <div class="">
-          <a href="#" id="dropdownHoverButton3" data-dropdown-toggle="dropdownHover3" data-dropdown-trigger="hover" class="group text-black font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center hover:text-blue-300 " > Blog      <svg
+          <a href="#" id="dropdownHoverButton3" id="hoverLink"   data-dropdown-toggle="dropdownHover3" data-dropdown-trigger="hover" class="group text-black font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center hover:text-blue-300 " > Blog      <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
             viewBox="0 0 24 24"
@@ -157,7 +191,7 @@
             d="m19.5 8.25-7.5 7.5-7.5-7.5"
             />
           </svg></a>
-          <div id="dropdownHover3" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 ">
+          <div id="dropdownHover3" id="popupContent" class="z-10 hidden  hidden-content bg-white divide-y divide-gray-100 rounded-lg shadow w-44 ">
             <ul class="py-2 text-sm text-black" aria-labelledby="dropdownHoverButton3">
               <li>
           
@@ -176,11 +210,10 @@
         <div>
     
       </div>
-    </div>
-    
-    <div class="lg:flex hidden hover:text-blue-300  lg:block">
+      
+      <div class="lg:flex hidden hover:text-blue-300  lg:block">
       <div>
-        <a href="#" id="dropdownHoverButton4" data-dropdown-toggle="dropdownHover4" data-dropdown-trigger="hover" class=" group text-black font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center hover:text-blue-300 "> Contacts  <svg
+        <a href="#" id="dropdownHoverButton4"  id="hoverLink"  data-dropdown-toggle="dropdownHover4" data-dropdown-trigger="hover" class=" group text-black font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center hover:text-blue-300 "> Contacts  <svg
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
           viewBox="0 0 24 24"
@@ -194,26 +227,25 @@
           d="m19.5 8.25-7.5 7.5-7.5-7.5"
           />
         </svg></a>
-        <div id="dropdownHover4" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 ">
+        <div id="dropdownHover4" id="popupContent" class="z-10 hidden hidden-content bg-white divide-y divide-gray-100 rounded-lg shadow w-44 ">
           <ul class="py-2 text-sm text-black" aria-labelledby="dropdownHoverButton4">
             <li>
-        
-              <a href="#" class="block px-4 py-2 hover:text-blue-300">Contacts one </a>
+              <a href="#" class="block p-4 border-b-[1]">Contacts one </a>
             </li>
             <li>
-              <a href="#" class="block px-4 py-2 hover:text-blue-300">Contacts two</a>
+              <a href="#" class="block p-4 border-b-[1]">Contacts two</a>
             </li>
             <li>
-              <a href="#" class="block px-4 py-2 hover:text-blue-300">Contacts three</a>
+              <a href="#" class="block p-4 border-b-[1]">Contacts three</a>
             </li>
-            
-          </ul> 
-          </div>
+          </ul>  
+       
+        </div>
       </div>
       <div>
        
+      </div>
     </div>
-  </div>
   <div class="lg:flex hidden hover:text-blue-300  lg:block">
       <a href="#" id="dropdownHoverButton5" data-dropdown-toggle="dropdownHover5" data-dropdown-trigger="hover" class=" group text-black font-medium rounded-lg text-sm pr-5 py-2.5 text-center inline-flex items-center hover:text-blue-300"> Elements<svg
         xmlns="http://www.w3.org/2000/svg"
@@ -229,7 +261,89 @@
         d="m19.5 8.25-7.5 7.5-7.5-7.5"
         />
       </svg>
-       </a>
+    </a>
+    <div id="dropdownHover5" id="popupContent" class="z-10 hidden hidden-content bg-white divide-y divide-gray-100  rounded-lg shadow h-72 w-4/5 size-max">
+      <ul class="p-2 border-b-2 text-sm text-black flex flex-nowrap" aria-labelledby="dropdownHoverButton5">
+        <li>
+          <a href="#"  id="dropdownHoverButton6"  data-dropdown-toggle="dropdownHover6" data-dropdown-trigger="hover" class="   text-black font-medium  text-sm px-5 py-2.5 text-center inline-flex items-center hover:text-blue-300 " class="block p-4 pl-16">Components </a>
+          <div  id="dropdownHover6" class="z-10 hidden flex-col ">
+            
+            <ul class="py-2  text-black " aria-labelledby="dropdownHoverButton6">
+                <div class="flex gap-16 pl-72">
+                  <div class=" pl-8 pr-8">
+                    <li>
+                      <a href="#" class="block p-2 hover:text-blue-300">Buttons and inputs </a>
+                    </li>
+                    <li>
+                      <a href="#" class="block p-2 hover:text-blue-300">Contacts form</a>
+                    </li>
+                    <li>
+                      <a href="#" class="block p-2 hover:text-blue-300">Content box </a>
+                    </li>
+                     <li>
+                      <a href="#" class="block p-2 hover:text-blue-300">Count down </a>
+                    </li>
+                    <li>
+                      <a href="#" class="block p-2 hover:text-blue-300">Counter</a>
+                    </li>
+                   <li>
+                      <a href="#" class="block p-2 hover:text-blue-300">Icons </a>
+                   </li>
+                  </div>
+
+                  <div  >
+                    <li>
+                      <a href="#" class="block p-2 hover:text-blue-300">Image box </a>
+                    </li>
+                    <li>
+                      <a href="#" class="block p-2 hover:text-blue-300">Inner menu</a>
+                    </li>
+                    <li>
+                      <a href="#" class="block p-2 hover:text-blue-300">Lists </a>
+                    </li>
+                     <li>
+                      <a href="#" class="block p-2 hover:text-blue-300">Maps</a>
+                    </li>
+                    <li>
+                      <a href="#" class="block p-2 hover:text-blue-300">Media Box</a>
+                    </li>
+                   <li>
+                      <a href="#" class="block p-2 hover:text-blue-300">Project box </a>
+                   </li>
+                  </div>
+                  <div class="pl-16">
+                    <li>
+                      <a href="#" class="block p-2 hover:text-blue-300">Social </a>
+                    </li>
+                    <li>
+                      <a href="#" class="block p-2 hover:text-blue-300">Tables</a>
+                    </li>
+                    <li>
+                      <a href="#" class="block p-2 hover:text-blue-300">Timeline </a>
+                    </li>
+                    
+                  </div>
+
+                
+                </div>
+                
+              </ul>
+          </div>
+        </li>
+
+
+
+        <li>
+          <a href="#" class="block p-4 pl-16">Containers and sections</a>
+        </li>
+        <li>
+          <a href="#" class="block p-4 pl-16">Navigation and headers</a>
+        </li>
+      </ul>  
+   
+    </div>
+  </div>
+  <div>
   </div>
 </div>
 <div class="lg:flex hidden lg:block">
@@ -244,13 +358,13 @@
 </div>
 </div>
 </section>
-    </div>
-  </div>
+</div>
+</div>
 
   <section class="pt-32 lg:flex">
     <div class="px-8 lg:pl-0 font-sans">
       <div class="flex">
-
+        
         <p class="lg:text-5xl font-bold text-4xl tracking-widest pt-4">
           Grow your businesswith<br />
           us. Start now. It's easy
@@ -278,7 +392,7 @@
     </div>
   </section>
   
-    <span
+  <span
     class="flex flex-col lg:flex-row mt-4 mb-16 gap-3 lg:justify-center "
     >
     <button class=" lg:relative border border-1 border-blue-400 rounded-3xl p-3 hover:bg-white hover:text-blue-400 lg:pr-24 bg-blue-400 text-white mx-12" >
@@ -661,31 +775,31 @@ Purchase now
 </div>
 
 <div class="flex gap-6 border-b-2 p-3">
-        <svg
-        xmlns="http://www.w3.org/2000/svg"
-        fill="none"
-        viewBox="0 0 24 24"
-        stroke-width="2.9"
-        stroke="green"
-        class="w-6 h-6 pt-1"
-        >
-        <path
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        d="m4.5 12.75 6 6 9-13.5"
-        />
-      </svg>
-      <p>Cheap prices</p>
-    </div>
-    
-    <div class="flex gap-6 border-b-2 p-3">
-      <svg
-      xmlns="http://www.w3.org/2000/svg"
-      fill="none"
-      viewBox="0 0 24 24"
-      stroke-width="2.9"
-      stroke="green"
-      class="w-6 h-6 pt-1"
+  <svg
+  xmlns="http://www.w3.org/2000/svg"
+  fill="none"
+  viewBox="0 0 24 24"
+  stroke-width="2.9"
+  stroke="green"
+  class="w-6 h-6 pt-1"
+  >
+  <path
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  d="m4.5 12.75 6 6 9-13.5"
+  />
+</svg>
+<p>Cheap prices</p>
+</div>
+
+<div class="flex gap-6 border-b-2 p-3">
+  <svg
+  xmlns="http://www.w3.org/2000/svg"
+  fill="none"
+  viewBox="0 0 24 24"
+  stroke-width="2.9"
+  stroke="green"
+  class="w-6 h-6 pt-1"
       >
       <path
       stroke-linecap="round"
@@ -705,7 +819,7 @@ Purchase now
 
 </div>
 <div class="my-8">
-
+  
   <div class="flex gap-6 ">
     <p class="font-bold text-3xl pt-6 pl-[25%] lg:pl-[39%]">Additional services</p> 
     <p class="text-blue-400 text-6xl">.</p>
@@ -725,7 +839,7 @@ Purchase now
     <div class="flex py-6">
       
       <a href="#" class=" text-lg text-blue-300 ">Try for free</a>
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="skyBlue" class="w-8 h-8 ">
+      <svg  id="animatedSVG" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="skyBlue" class="w-8 h-8 ">
         <path fill-rule="evenodd" d="M6.22 4.22a.75.75 0 0 1 1.06 0l3.25 3.25a.75.75 0 0 1 0 1.06l-3.25 3.25a.75.75 0 0 1-1.06-1.06L8.94 8 6.22 5.28a.75.75 0 0 1 0-1.06Z" clip-rule="evenodd" />
       </svg>  
     </div>
@@ -743,7 +857,7 @@ Purchase now
     <div class="flex my-6">
       
       <a href="#" class=" text-lg text-blue-300 ">Try for free</a>
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="skyBlue" class="w-8 h-8 ">
+      <svg  id="animatedSVG" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="skyBlue" class="w-8 h-8 ">
         <path fill-rule="evenodd" d="M6.22 4.22a.75.75 0 0 1 1.06 0l3.25 3.25a.75.75 0 0 1 0 1.06l-3.25 3.25a.75.75 0 0 1-1.06-1.06L8.94 8 6.22 5.28a.75.75 0 0 1 0-1.06Z" clip-rule="evenodd" />
       </svg>  
     </div>
@@ -760,7 +874,7 @@ Purchase now
     <div class="flex my-6">
       
       <a href="#" class=" text-lg text-blue-300 ">Try for free</a>
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="skyBlue" class="w-8 h-8 ">
+      <svg  id="animatedSVG" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="skyBlue" class="w-8 h-8 ">
         <path fill-rule="evenodd" d="M6.22 4.22a.75.75 0 0 1 1.06 0l3.25 3.25a.75.75 0 0 1 0 1.06l-3.25 3.25a.75.75 0 0 1-1.06-1.06L8.94 8 6.22 5.28a.75.75 0 0 1 0-1.06Z" clip-rule="evenodd" />
       </svg>  
     </div>
@@ -780,7 +894,7 @@ Purchase now
       <div class=" flex gap-2">
       
         <a href=""class="pl-[30%] lg:pl-8 text-blue-400 text-lg py-4">More details</a>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="skyBlue" class="w-12 h-12 pt-4">
+        <svg id="animatedSVG"  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="skyBlue" class="w-12 h-12 pt-4">
           <path fill-rule="evenodd" d="M6.22 4.22a.75.75 0 0 1 1.06 0l3.25 3.25a.75.75 0 0 1 0 1.06l-3.25 3.25a.75.75 0 0 1-1.06-1.06L8.94 8 6.22 5.28a.75.75 0 0 1 0-1.06Z" clip-rule="evenodd" />
         </svg>       
       </div>
@@ -794,7 +908,7 @@ Purchase now
       <div class=" flex gap-2">
         
         <a href=""class="pl-[30%] lg:pl-8 text-blue-400 text-md py-4">Write us now</a>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="skyBlue" class="w-12 h-12 pt-4 ">
+        <svg  id="animatedSVG" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="skyBlue" class="w-12 h-12 pt-4 ">
           <path fill-rule="evenodd" d="M6.22 4.22a.75.75 0 0 1 1.06 0l3.25 3.25a.75.75 0 0 1 0 1.06l-3.25 3.25a.75.75 0 0 1-1.06-1.06L8.94 8 6.22 5.28a.75.75 0 0 1 0-1.06Z" clip-rule="evenodd" />
         </svg>       
       </div>
@@ -808,7 +922,7 @@ Purchase now
       <div class=" flex gap-2">
         
         <a href=""class="pl-[30%] lg:pl-8 text-blue-400 text-md py-4">More information</a>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="skyBlue" class="w-12 h-12 pt-4 ">
+        <svg  id="animatedSVG" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="skyBlue" class="w-12 h-12 pt-4 ">
           <path fill-rule="evenodd" d="M6.22 4.22a.75.75 0 0 1 1.06 0l3.25 3.25a.75.75 0 0 1 0 1.06l-3.25 3.25a.75.75 0 0 1-1.06-1.06L8.94 8 6.22 5.28a.75.75 0 0 1 0-1.06Z" clip-rule="evenodd" />
         </svg>       
       </div>
@@ -817,78 +931,78 @@ Purchase now
 </div>
 
 <footer class="bg-[#011F5B] opacity-80 text-white py-16 md:flex md:justify-between md:px-20"
+>
+<div class="p-5">
+  <h2 class="font-normal text-md py-3">Company and team</h2>
+  <p
+  class="text-gray-400 text-sm py-2 hover:cursor-pointer hover:underline hover:underline-offset-8 hover:decoration-blue-600"
+  >
+  Company details and team
+</p>
+        <p
+        class="text-gray-400  text-sm py-2 hover:cursor-pointer hover:underline hover:underline-offset-8 hover:decoration-blue-600"
+        >
+        News and blog
+      </p>
+      <p
+          class="text-gray-400 text-sm py-2 hover:cursor-pointer hover:underline hover:underline-offset-8 hover:decoration-blue-600"
+        >
+          Press area
+        </p>
+        <p
+          class="text-gray-400 text-sm py-2 hover:cursor-pointer hover:underline hover:underline-offset-8 hover:decoration-blue-600"
+        >
+        Affiliates and marketing
+      </p>
+    </div>
+      <div class="p-5">
+        <h2 class="font-normal text-md py-3">Company and team</h2>
+        <p
+        class="text-gray-400 text-sm py-2 hover:cursor-pointer hover:underline hover:underline-offset-8 hover:decoration-blue-600"
+        >
+        Company details and team
+      </p>
+      <p
+      class="text-gray-400 text-sm py-2 hover:cursor-pointer hover:underline hover:underline-offset-8 hover:decoration-blue-600"
+      >
+      News and blog
+    </p>
+    <p
+    class="text-gray-400 text-sm py-2 hover:cursor-pointer hover:underline hover:underline-offset-8 hover:decoration-blue-600"
     >
+    Press area
+  </p>
+        <p
+          class="text-gray-400 text-sm py-2 hover:cursor-pointer hover:underline hover:underline-offset-8 hover:decoration-blue-600"
+        >
+        Affiliates and marketing
+      </p>
+    </div>
       <div class="p-5">
-        <h2 class="font-normal text-xl py-3">Company and team</h2>
+        <h2 class="font-normal text-md py-3">Company and team</h2>
         <p
-          class="text-gray-400 py-2 hover:cursor-pointer hover:underline hover:underline-offset-8 hover:decoration-green-500"
+          class="text-gray-400 text-sm py-2 hover:cursor-pointer hover:underline hover:underline-offset-8 hover:decoration-blue-600 "
         >
-          Company details and team
+        Company details and team
+      </p>
+      <p
+      class="text-gray-400 text-sm py-2 hover:cursor-pointer hover:underline hover:underline-offset-8 hover:decoration-blue-600"
+      >
+      News and blog
         </p>
         <p
-          class="text-gray-400 py-2 hover:cursor-pointer hover:underline hover:underline-offset-8 hover:decoration-green-500"
+        class="text-gray-400 text-sm py-2 hover:cursor-pointer hover:underline hover:underline-offset-8 hover:decoration-blue-600"
         >
-          News and blog
-        </p>
-        <p
-          class="text-gray-400 py-2 hover:cursor-pointer hover:underline hover:underline-offset-8 hover:decoration-green-500"
-        >
-          Press area
-        </p>
-        <p
-          class="text-gray-400 py-2 hover:cursor-pointer hover:underline hover:underline-offset-8 hover:decoration-green-500"
-        >
-          Affiliates and marketing
-        </p>
+        Press area
+      </p>
+      <p
+      class="text-gray-400 text-sm py-2 hover:cursor-pointer hover:underline hover:underline-offset-8 hover:decoration-blue-600"
+      >
+      Affiliates and marketing
+    </p>
       </div>
       <div class="p-5">
-        <h2 class="font-normal text-xl py-3">Company and team</h2>
-        <p
-          class="text-gray-400 py-2 hover:cursor-pointer hover:underline hover:underline-offset-8 hover:decoration-green-500"
-        >
-          Company details and team
-        </p>
-        <p
-          class="text-gray-400 py-2 hover:cursor-pointer hover:underline hover:underline-offset-8 hover:decoration-green-500"
-        >
-          News and blog
-        </p>
-        <p
-          class="text-gray-400 py-2 hover:cursor-pointer hover:underline hover:underline-offset-8 hover:decoration-green-500"
-        >
-          Press area
-        </p>
-        <p
-          class="text-gray-400 py-2 hover:cursor-pointer hover:underline hover:underline-offset-8 hover:decoration-green-500"
-        >
-          Affiliates and marketing
-        </p>
-      </div>
-      <div class="p-5">
-        <h2 class="font-normal text-xl py-3">Company and team</h2>
-        <p
-          class="text-gray-400 py-2 hover:cursor-pointer hover:underline hover:underline-offset-8 hover:decoration-green-500"
-        >
-          Company details and team
-        </p>
-        <p
-          class="text-gray-400 py-2 hover:cursor-pointer hover:underline hover:underline-offset-8 hover:decoration-green-500"
-        >
-          News and blog
-        </p>
-        <p
-          class="text-gray-400 py-2 hover:cursor-pointer hover:underline hover:underline-offset-8 hover:decoration-green-500"
-        >
-          Press area
-        </p>
-        <p
-          class="text-gray-400 py-2 hover:cursor-pointer hover:underline hover:underline-offset-8 hover:decoration-green-500"
-        >
-          Affiliates and marketing
-        </p>
-      </div>
-      <div class="p-5">
-        <h2 class="font-normal text-xl py-3">Follow us</h2>
+        <h2 class="font-normal text-md py-3">Follow us</h2>
         <div>
           <ul class="flex gap-0">
             <li>
@@ -901,13 +1015,13 @@ Purchase now
               <img src="icons8-linkedin.svg" alt="">
             </li>
             <li>
-              <img src="logos-utube.svg"">
+              <img src="logos-utube.svg" alt="">
             </li>
             <li>
               <img src="instagram.svg" alt="" class="stroke-black h-12 w-12 pt-[1]">
             </li>  
           </ul> 
-
+          
         </div>
      
       </div>
@@ -916,16 +1030,37 @@ Purchase now
     <div class="bg-[#011F5B] opacity-80 ">
       
       <div class=" flex gap-44 border-t border-gray-400">
-
-        <p class="text-left p-5 text-gray-400 ">
+        
+        <p class="text-left text-xs p-5 pl-20 text-gray-400 ">
           &copy; Codrop LTD 2019. Codrop is a powerful Landing Page App Template
           build with Themekit by the Schiocco team.
         </p>
         <div>
           <img class="h-12 pt-6" src="logo-dark.svg" />
         </div>
+        <div class=" p-4 border-1 bg-white rounded-full mt-1">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6">
+            <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 15.75 7.5-7.5 7.5 7.5" />
+          </svg>
+          
+          
+        </div>
       </div>
     </div>
+  </div>
+    
+    <script>
+      const hoverLink = document.getElementById('hoverLink');
+      const popupContent = document.getElementById('popupContent');
+
+      hoverLink.addEventListener('mouseenter', () => {
+          popupContent.classList.add('shown-content');
+      });
+
+      hoverLink.addEventListener('mouseleave', () => {
+          popupContent.classList.remove('shown-content');
+        });
+  </script>
 </body>
 </html>
 
@@ -1041,3 +1176,23 @@ Purchase now
     
     </ul> 
   </div> -->
+   <!-- Link -->
+
+
+   <!-- JavaScript to toggle the display of content -->
+   <!-- <script>
+       const hoverLink = document.getElementById('hoverLink');
+       const popupContent = document.getElementById('popupContent');
+
+       hoverLink.addEventListener('mouseenter', () => {
+           popupContent.classList.add('shown-content');
+       });
+
+       hoverLink.addEventListener('mouseleave', () => {
+           popupContent.classList.remove('shown-content');
+       });
+   </script> -->
+
+
+   <!-- element component -->
+  
